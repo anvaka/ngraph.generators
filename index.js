@@ -1,6 +1,7 @@
 module.exports = {
   ladder: ladder,
-  complete: complete
+  complete: complete,
+  path: path
 };
 
 var createGraph = require('ngraph.graph');
@@ -31,6 +32,7 @@ function ladder(n) {
 
   return g;
 }
+
 /**
  * Generates complete graph Kn.
  *
@@ -38,7 +40,7 @@ function ladder(n) {
  */
 function complete(n) {
   if (!n || n < 1) {
-    throw new Error("At least two nodes expected for complete graph");
+    throw new Error("At least two nodes are expected for complete graph");
   }
 
   var g = createGraph(),
@@ -51,6 +53,28 @@ function complete(n) {
         g.addLink(i, j);
       }
     }
+  }
+
+  return g;
+}
+
+/**
+ * Generates a path-graph with n steps.
+ *
+ * @param n {Number} number of nodes in the path
+ */
+function path(n) {
+  if (!n || n < 0) {
+    throw new Error("Invalid number of nodes");
+  }
+
+  var g = createGraph(),
+      i;
+
+  g.addNode(0);
+
+  for (i = 1; i < n; ++i) {
+    g.addLink(i - 1, i);
   }
 
   return g;

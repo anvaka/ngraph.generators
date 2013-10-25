@@ -12,6 +12,16 @@ test('Create ladder', function(t) {
   t.end();
 });
 
+test('Create path', function(t) {
+  var size = 5;
+  var graph = generators.path(size);
+  // Path is simple:
+  // *--*--*--*--*
+  t.equal(graph.getNodesCount(), size, "Unexpected number of nodes for path graph");
+  t.equal(graph.getLinksCount(), (size - 1), "Unexpected number of links for path graph");
+  t.end();
+});
+
 test('Create complete', function(t) {
   var size = 5;
   var graph = generators.complete(size);
