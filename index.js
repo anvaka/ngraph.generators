@@ -1,7 +1,8 @@
 module.exports = {
   ladder: ladder,
   complete: complete,
-  path: path
+  path: path,
+  circularLadder: circularLadder
 };
 
 var createGraph = require('ngraph.graph');
@@ -79,4 +80,21 @@ function path(n) {
   }
 
   return g;
+}
+
+/**
+ * Generates a graph in a form of a circular ladder with n steps.
+ *
+ * @param n {Number} of steps in the ladder.
+ */
+function circularLadder(n) {
+    if (!n || n < 0) {
+        throw new Error("Invalid number of nodes");
+    }
+
+    var g = ladder(n);
+
+    g.addLink(0, n - 1);
+    g.addLink(n, 2 * n - 1);
+    return g;
 }

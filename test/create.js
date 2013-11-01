@@ -30,3 +30,13 @@ test('Create complete', function(t) {
   t.equal(graph.getLinksCount(), (size * (size - 1)), "Unexpected number of links for complete graph");
   t.end();
 });
+
+test('Circular ladder', function(t) {
+  var size = 3;
+  var graph = generators.circularLadder(size);
+  // cricular ladder is like a ladder, but last two and first two 
+  // nodes are connected
+  t.equal(graph.getNodesCount(), 6, "Unexpected number of nodes for circular ladder graph");
+  t.equal(graph.getLinksCount(), 9, "Unexpected number of links for circular ladder graph");
+  t.end();
+});
