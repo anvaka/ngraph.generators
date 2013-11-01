@@ -51,6 +51,7 @@ function complete(n) {
     for (j = i + 1; j < n; ++j) {
       if (i !== j) {
         g.addLink(i, j);
+        g.addLink(j, i);
       }
     }
   }

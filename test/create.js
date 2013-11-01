@@ -27,6 +27,6 @@ test('Create complete', function(t) {
   var graph = generators.complete(size);
   // Complete graph has all nodes connected with each other.
   t.equal(graph.getNodesCount(), size, "Unexpected number of nodes for complete graph");
-  t.equal(graph.getLinksCount(), (size * (size - 1))/2, "Unexpected number of links for complete graph");
+  t.equal(graph.getLinksCount(), (size * (size - 1)), "Unexpected number of links for complete graph");
   t.end();
 });
