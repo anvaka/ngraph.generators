@@ -2,7 +2,8 @@ module.exports = {
   ladder: ladder,
   complete: complete,
   path: path,
-  circularLadder: circularLadder
+  circularLadder: circularLadder,
+  grid: grid
 };
 
 var createGraph = require('ngraph.graph');
@@ -32,6 +33,23 @@ function ladder(n) {
   // last step in the ladder;
 
   return g;
+}
+
+/**
+ * Generates a graph in a form of a circular ladder with n steps.
+ *
+ * @param n {Number} of steps in the ladder.
+ */
+function circularLadder(n) {
+    if (!n || n < 0) {
+        throw new Error("Invalid number of nodes");
+    }
+
+    var g = ladder(n);
+
+    g.addLink(0, n - 1);
+    g.addLink(n, 2 * n - 1);
+    return g;
 }
 
 /**
@@ -82,19 +100,24 @@ function path(n) {
   return g;
 }
 
+
 /**
- * Generates a graph in a form of a circular ladder with n steps.
+ * Generates a graph in a form of a grid with n rows and m columns.
  *
- * @param n {Number} of steps in the ladder.
+ * @param n {Number} of rows in the graph.
+ * @param m {Number} of columns in the graph.
  */
-function circularLadder(n) {
-    if (!n || n < 0) {
-        throw new Error("Invalid number of nodes");
+function grid(n, m) {
+  var g = createGraph(),
+      i,
+      j;
+  for (i = 0; i < n; ++i) {
+    for (j = 0; j < m; ++j) {
+      var node = i + j * n;
+      if (i > 0) { g.addLink(node, i - 1 + j * n); }
+      if (j > 0) { g.addLink(node, i + (j - 1) * n); }
     }
+  }
 
-    var g = ladder(n);
-
-    g.addLink(0, n - 1);
-    g.addLink(n, 2 * n - 1);
-    return g;
+  return g;
 }

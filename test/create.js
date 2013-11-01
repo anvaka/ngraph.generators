@@ -36,7 +36,25 @@ test('Circular ladder', function(t) {
   var graph = generators.circularLadder(size);
   // cricular ladder is like a ladder, but last two and first two 
   // nodes are connected
+  // ┌-----┐
+  // *--*--*
+  // |  |  |
+  // *--*--*
+  // └-----┘
   t.equal(graph.getNodesCount(), 6, "Unexpected number of nodes for circular ladder graph");
   t.equal(graph.getLinksCount(), 9, "Unexpected number of links for circular ladder graph");
+  t.end();
+});
+
+test('Create grid', function(t) {
+  // grid is a grid. This is 3 x 4 grid:
+  // *--*--*--*
+  // |  |  |  |
+  // *--*--*--*
+  // |  |  |  |
+  // *--*--*--*
+  var graph = generators.grid(3, 4);
+  t.equal(graph.getNodesCount(), 12, "Unexpected number of nodes for grid graph");
+  t.equal(graph.getLinksCount(), 17, "Unexpected number of links for grid graph");
   t.end();
 });
