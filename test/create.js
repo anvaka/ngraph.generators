@@ -31,6 +31,16 @@ test('Create complete', function(t) {
   t.end();
 });
 
+test('Create complete', function(t) {
+  // see http://en.wikipedia.org/wiki/Complete_bipartite_graph
+  var m = 3, n = 4;
+  var graph = generators.completeBipartite(m, n);
+
+  t.equal(graph.getNodesCount(), m + n, "Unexpected number of nodes for complete bipartite graph");
+  t.equal(graph.getLinksCount(), (m * n), "Unexpected number of links for complete bipartite graph");
+  t.end();
+});
+
 test('Circular ladder', function(t) {
   var size = 3;
   var graph = generators.circularLadder(size);

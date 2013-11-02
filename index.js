@@ -1,6 +1,7 @@
 module.exports = {
   ladder: ladder,
   complete: complete,
+  completeBipartite: completeBipartite,
   path: path,
   circularLadder: circularLadder,
   grid: grid
@@ -72,6 +73,30 @@ function complete(n) {
         g.addLink(i, j);
         g.addLink(j, i);
       }
+    }
+  }
+
+  return g;
+}
+
+/**
+ * Generates complete bipartite graph K n,m. Each node in the
+ * first partition is connected to all nodes in the second partition.
+ *
+ * @param n {Number} represents number of nodes in the first graph partition
+ * @param m {Number} represents number of nodes in the second graph partition
+ */
+function completeBipartite (n, m) {
+  if (!n || !m || n < 0 || m < 0) {
+    throw new Error("Graph dimensions are invalid. Number of nodes in each partition should be greate than 0");
+  }
+
+  var g = createGraph(),
+      i, j;
+
+  for (i = 0; i < n; ++i) {
+    for (j = n; j < n + m; ++j) {
+      g.addLink(i, j);
     }
   }
 
