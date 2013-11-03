@@ -63,8 +63,25 @@ test('Create grid', function(t) {
   // *--*--*--*
   // |  |  |  |
   // *--*--*--*
-  var graph = generators.grid(3, 4);
-  t.equal(graph.getNodesCount(), 12, "Unexpected number of nodes for grid graph");
-  t.equal(graph.getLinksCount(), 17, "Unexpected number of links for grid graph");
-  t.end();
+  t.test('3x4 grid', function (t) {
+    var graph = generators.grid(3, 4);
+    t.equal(graph.getNodesCount(), 12, "Unexpected number of nodes for grid graph");
+    t.equal(graph.getLinksCount(), 17, "Unexpected number of links for grid graph");
+    t.end();
+  });
+
+  t.test('1x1 grid', function (t) {
+    var graph = generators.grid(1, 1);
+    t.equal(graph.getNodesCount(), 1, "Unexpected number of nodes for 1x1 grid graph");
+    t.equal(graph.getLinksCount(), 0, "Unexpected number of links for 1x1 grid graph");
+    t.end();
+  });
+
+  t.test('1x2 grid', function (t) {
+    // this is a path of two nodes *--*
+    var graph = generators.grid(1, 2);
+    t.equal(graph.getNodesCount(), 2, "Unexpected number of nodes for 1x2 grid graph");
+    t.equal(graph.getLinksCount(), 1, "Unexpected number of links for 1x2 grid graph");
+    t.end();
+  });
 });

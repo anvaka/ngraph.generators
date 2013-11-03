@@ -133,9 +133,17 @@ function path(n) {
  * @param m {Number} of columns in the graph.
  */
 function grid(n, m) {
+  if (n < 1 || m < 1) {
+    throw new Error("Invalid number of nodes in grid graph");
+  }
   var g = createGraph(),
       i,
       j;
+  if (n === 1 && m === 1) {
+    g.addNode(0);
+    return g;
+  }
+
   for (i = 0; i < n; ++i) {
     for (j = 0; j < m; ++j) {
       var node = i + j * n;
