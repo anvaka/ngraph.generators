@@ -2,6 +2,7 @@ module.exports = {
   ladder: ladder,
   complete: complete,
   completeBipartite: completeBipartite,
+  balancedBinTree: balancedBinTree,
   path: path,
   circularLadder: circularLadder,
   grid: grid
@@ -150,6 +151,35 @@ function grid(n, m) {
       if (i > 0) { g.addLink(node, i - 1 + j * n); }
       if (j > 0) { g.addLink(node, i + (j - 1) * n); }
     }
+  }
+
+  return g;
+}
+
+/**
+ * Creates balanced binary tree with n levels.
+ *
+ * @param n {Number} of levels in the binary tree
+ */
+function balancedBinTree(n) {
+  if (n < 0) {
+    throw new Error("Invalid number of nodes in balanced tree");
+  }
+  var g = createGraph(),
+      count = Math.pow(2, n),
+      level;
+
+  if (n === 0) {
+    g.addNode(1);
+  }
+
+  for (level = 1; level < count; ++level) {
+    var root = level,
+      left = root * 2,
+      right = root * 2 + 1;
+
+    g.addLink(root, left);
+    g.addLink(root, right);
   }
 
   return g;

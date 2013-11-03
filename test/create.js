@@ -85,3 +85,14 @@ test('Create grid', function(t) {
     t.end();
   });
 });
+
+test('Create balanced binary tree', function(t) {
+  // This is a binary tree graph, of height 2:
+  //      *
+  //   *     *
+  // *   * *   *
+  var graph = generators.balancedBinTree(2);
+  t.equal(graph.getNodesCount(), 7, "Unexpected number of nodes for balanced binary tree");
+  t.equal(graph.getLinksCount(), 6, "Unexpected number of links for balanced binary tree");
+  t.end();
+});
