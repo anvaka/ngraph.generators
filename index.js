@@ -5,7 +5,8 @@ module.exports = {
   balancedBinTree: balancedBinTree,
   path: path,
   circularLadder: circularLadder,
-  grid: grid
+  grid: grid,
+  noLinks: noLinks
 };
 
 var createGraph = require('ngraph.graph');
@@ -180,6 +181,24 @@ function balancedBinTree(n) {
 
     g.addLink(root, left);
     g.addLink(root, right);
+  }
+
+  return g;
+}
+
+/**
+ * Creates graph with no links
+ *
+ * @param n {Number} of nodes in the graph
+ */
+function noLinks(n) {
+  if (n < 0) {
+    throw new Error("Number of nodes shoul be >= 0");
+  }
+
+  var g = createGraph(), i;
+  for (i = 0; i < n; ++i) {
+    g.addNode(i);
   }
 
   return g;

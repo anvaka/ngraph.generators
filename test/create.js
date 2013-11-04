@@ -96,3 +96,11 @@ test('Create balanced binary tree', function(t) {
   t.equal(graph.getLinksCount(), 6, "Unexpected number of links for balanced binary tree");
   t.end();
 });
+
+test('Create no links', function(t) {
+  // no links graph has no links.
+  var graph = generators.noLinks(42);
+  t.equal(graph.getNodesCount(), 42, "Unexpected number of nodes in noLinks graph");
+  t.equal(graph.getLinksCount(), 0, "Unexpected number of links in noLinks graph");
+  t.end();
+});
