@@ -131,7 +131,7 @@ test('Create grid3d', function(t) {
     t.end();
   });
 
-  t.test('1x2 grid', function (t) {
+  t.test('1x2x1 grid', function (t) {
     // this is a path of two nodes *--*
     var graph = generators.grid3(1, 2, 1);
     t.equal(graph.getNodesCount(), 2, "Unexpected number of nodes for 1x2x1 grid3 graph");
