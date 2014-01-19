@@ -6,6 +6,7 @@ module.exports = {
   path: path,
   circularLadder: circularLadder,
   grid: grid,
+  grid3: grid3,
   noLinks: noLinks
 };
 
@@ -151,6 +152,40 @@ function grid(n, m) {
       var node = i + j * n;
       if (i > 0) { g.addLink(node, i - 1 + j * n); }
       if (j > 0) { g.addLink(node, i + (j - 1) * n); }
+    }
+  }
+
+  return g;
+}
+
+/**
+ * Generates a graph in a form of a 3d grid with n rows and m columns and z levels.
+ *
+ * @param {Number} n of rows in the graph.
+ * @param {Number} m of columns in the graph.
+ * @param {Number} z of levels in the graph.
+ */
+function grid3(n, m, z) {
+  if (n < 1 || m < 1 || z < 1) {
+    throw new Error("Invalid number of nodes in grid3 graph");
+  }
+  var g = createGraph(),
+      i, j, k;
+
+  if (n === 1 && m === 1 && z === 1) {
+    g.addNode(0);
+    return g;
+  }
+
+  for (k = 0; k < z; ++k) {
+    for (i = 0; i < n; ++i) {
+      for (j = 0; j < m; ++j) {
+        var level = k * n * m;
+        var node = i + j * n + level;
+        if (i > 0) { g.addLink(node, i - 1 + j * n + level); }
+        if (j > 0) { g.addLink(node, i + (j - 1) * n + level); }
+        if (k > 0) { g.addLink(node, i + j * n + (k - 1) * n * m ); }
+      }
     }
   }
 
