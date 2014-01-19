@@ -13,7 +13,7 @@ var createGraph = require('ngraph.graph');
 
 /**
  * Ladder graph is a graph in form of ladder
- * @param n {Number} Represents number of steps in the ladder
+ * @param {Number} n Represents number of steps in the ladder
  */
 function ladder(n) {
   if (!n || n < 0) {
@@ -41,7 +41,7 @@ function ladder(n) {
 /**
  * Generates a graph in a form of a circular ladder with n steps.
  *
- * @param n {Number} of steps in the ladder.
+ * @param {Number} n of steps in the ladder.
  */
 function circularLadder(n) {
     if (!n || n < 0) {
@@ -58,7 +58,7 @@ function circularLadder(n) {
 /**
  * Generates complete graph Kn.
  *
- * @param n {Number}  represents number of nodes in the complete graph.
+ * @param {Number} n represents number of nodes in the complete graph.
  */
 function complete(n) {
   if (!n || n < 1) {
@@ -85,8 +85,8 @@ function complete(n) {
  * Generates complete bipartite graph K n,m. Each node in the
  * first partition is connected to all nodes in the second partition.
  *
- * @param n {Number} represents number of nodes in the first graph partition
- * @param m {Number} represents number of nodes in the second graph partition
+ * @param {Number} n represents number of nodes in the first graph partition
+ * @param {Number} m represents number of nodes in the second graph partition
  */
 function completeBipartite (n, m) {
   if (!n || !m || n < 0 || m < 0) {
@@ -108,7 +108,7 @@ function completeBipartite (n, m) {
 /**
  * Generates a path-graph with n steps.
  *
- * @param n {Number} number of nodes in the path
+ * @param {Number} n number of nodes in the path
  */
 function path(n) {
   if (!n || n < 0) {
@@ -131,8 +131,8 @@ function path(n) {
 /**
  * Generates a graph in a form of a grid with n rows and m columns.
  *
- * @param n {Number} of rows in the graph.
- * @param m {Number} of columns in the graph.
+ * @param {Number} n of rows in the graph.
+ * @param {Number} m of columns in the graph.
  */
 function grid(n, m) {
   if (n < 1 || m < 1) {
@@ -160,7 +160,7 @@ function grid(n, m) {
 /**
  * Creates balanced binary tree with n levels.
  *
- * @param n {Number} of levels in the binary tree
+ * @param {Number} n of levels in the binary tree
  */
 function balancedBinTree(n) {
   if (n < 0) {
@@ -189,7 +189,7 @@ function balancedBinTree(n) {
 /**
  * Creates graph with no links
  *
- * @param n {Number} of nodes in the graph
+ * @param {Number} n of nodes in the graph
  */
 function noLinks(n) {
   if (n < 0) {
