@@ -12,46 +12,62 @@ which contains graphs from University of Florida collection.
 ## Ladder
 
 ``` js
-var graph = require('ngraph.generators').ladder;
+// Creates a ladder with 10 steps
+var graph = require('ngraph.generators').ladder(10);
 ```
+
 ## Complete
 
 ``` js
-var graph = require('ngraph.generators').complete;
+// Creates complete graph K6
+var graph = require('ngraph.generators').complete(6);
 ```
+
 ## CompleteBipartite
 
 ``` js
-var graph = require('ngraph.generators').completeBipartite;
+// Creates complete bipartite graph K 3,3.
+var graph = require('ngraph.generators').completeBipartite(3, 3);
 ```
+
 ## BalancedBinTree
 
 ``` js
-var graph = require('ngraph.generators').balancedBinTree;
+// Creates balanced binary tree with n levels.
+var graph = require('ngraph.generators').balancedBinTree(5);
 ```
+
 ## Path
 
 ``` js
-var graph = require('ngraph.generators').path;
+// Generates a path-graph with 10 steps.
+var graph = require('ngraph.generators').path(10);
 ```
+
 ## CircularLadder
 
 ``` js
-var graph = require('ngraph.generators').circularLadder;
+// Generates a graph in a form of a circular ladder with 5 steps.
+var graph = require('ngraph.generators').circularLadder(5);
 ```
+
 ## Grid
 
 ``` js
-var graph = require('ngraph.generators').grid;
+// Generates a graph in a form of a grid with 10 rows and 10 columns.
+var graph = require('ngraph.generators').grid(10, 10);
 ```
+
 ## Grid3
 
 ``` js
-var graph = require('ngraph.generators').grid3;
+// Generates a graph in a form of a 3d grid with 10 rows and 10 columns and 10 levels.
+var graph = require('ngraph.generators').grid3(10, 10, 10);
 ```
 
 ## NoLinks
 ``` js
-var graph = require('ngraph.generators').noLinks;
+// Creates graph with 100 nodes and 0 links
+var graph = require('ngraph.generators').noLinks(100);;
 ```
 
