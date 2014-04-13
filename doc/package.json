@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "ngraph.fabric": "0.0.1",
+    "ngraph.forcelayout": "0.0.10",
+    "fabric": "^1.4.3"
+  }
+}
