@@ -68,8 +68,8 @@ var graph = require('ngraph.generators').grid(10, 10);
 ## Grid3
 
 ``` js
-// Generates a graph in a form of a 3d grid with 10 rows and 10 columns and 10 levels.
-var graph = require('ngraph.generators').grid3(10, 10, 10);
+// Generates a graph in a form of a 3d grid with 5 rows and 5 columns and 5 levels.
+var graph = require('ngraph.generators').grid3(5, 5, 5);
 ```
 ![Grid 3d](https://raw.githubusercontent.com/anvaka/ngraph.generators/master/doc/grid3.png)
 
