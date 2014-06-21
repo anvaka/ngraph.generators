@@ -7,7 +7,8 @@ module.exports = {
   circularLadder: circularLadder,
   grid: grid,
   grid3: grid3,
-  noLinks: noLinks
+  noLinks: noLinks,
+  wattsStrogatz: wattsStrogatz
 };
 
 var createGraph = require('ngraph.graph');
@@ -234,6 +235,35 @@ function noLinks(n) {
   var g = createGraph(), i;
   for (i = 0; i < n; ++i) {
     g.addNode(i);
+  }
+
+  return g;
+}
+
+/**
+ * Returns a Watts-Strogatz small-world graph.
+ * 
+ * @param {Number} n The number of nodes
+ * @param {Number} k Each node is connected to k nearest neighbors in ring topology
+ * @param {Number} p The probability of rewiring each edge
+
+ * @see https://github.com/networkx/networkx/blob/master/networkx/generators/random_graphs.py
+ */
+function wattsStrogatz(n, k, p, seed) {
+  if (k >= n) throw new Error('Choose smaller `k`. It cannot be larger than number of nodes `n`');
+
+  var g = createGraph(), i;
+  for (i = 0; i < n; ++i) {
+    g.addNode(i);
+  }
+
+  // connect each node to k/2 neighbors
+  var neighborsSize = Math.floor(k/2 + 1);
+  for (var j = 1; j < neighborsSize; ++j) {
+    for (i = 0; i < n; ++i) {
+      var to = (j + i) % n;
+      g.addLink(i, to);
+    }
   }
 
   return g;
