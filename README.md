@@ -1,7 +1,7 @@
 Graph generators
 =================
 This module generates various graphs. It is part of larger [ngraph](https://github.com/anvaka/ngraph)
-family. If you something not as simple as generated graphs, please check out 
+family. If you something not as simple as generated graphs, please check out
 [ngraph.sparce-collection](https://github.com/anvaka/ngraph.sparse-collection) repository
 which contains graphs from University of Florida collection.
 
@@ -80,3 +80,11 @@ var graph = require('ngraph.generators').grid3(5, 5, 5);
 var graph = require('ngraph.generators').noLinks(100);;
 ```
 ![No Links](https://raw.githubusercontent.com/anvaka/ngraph.generators/master/doc/noLinks.png)
+
+## NoLinks
+
+``` js
+// Creates graph with 100 nodes, each node is connected with 20 neighbours,
+// and probability of neighbour to be outside of local node community is 1%.
+var graph = require('ngraph.generators').wattsStrogatz(100, 20, 0.01);
+```
