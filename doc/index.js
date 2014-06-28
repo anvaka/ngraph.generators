@@ -10,14 +10,20 @@ var factoryParams = {
   circularLadder: { args: [5] },
   grid: { args: [10, 10] },
   grid3: { args: [5, 5, 5] },
-  noLinks: { args: [100] }
+  noLinks: { args: [100] },
+  wattsStrogatz_100_20_00: { args: [100, 20, 0] },
+  wattsStrogatz_100_20_01: { args: [100, 20, 0.01] },
+  wattsStrogatz_100_20_10: { args: [100, 20, 0.1] },
+  wattsStrogatz_100_20_50: { args: [100, 20, 0.5] },
+  wattsStrogatz_20_04_02: { args: [20, 4, 0.02] }
 };
 
-Object.keys(generators).forEach(renderGraph);
+Object.keys(factoryParams).forEach(renderGraph);
 
 function renderGraph(name) {
+  var generatorName = name.split('_')[0];
   var factorySettings = factoryParams[name];
-  var graph = generators[name].apply(null, factorySettings.args);
+  var graph = generators[generatorName].apply(null, factorySettings.args);
   var layout = layoutGraph(graph, factorySettings.iterations || 200);
   var canvas = renderToCanvas(graph, layout);
   saveCanvasToFile(canvas, name + '.png');
