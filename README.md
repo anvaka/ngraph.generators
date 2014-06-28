@@ -101,10 +101,17 @@ var g4 = require('ngraph.generators').wattsStrogatz(100, 20, 0.50);
 var g5 = require('ngraph.generators').wattsStrogatz(20, 4, 0.02);
 ```
 
-![](https://raw.githubusercontent.com/anvaka/ngraph.generators/master/doc/ladder.png)
-
+### Watts Strogatz n = 100 k = 20 b = 0.00
 ![Watts Strogatz n = 100 k = 20 b = 0.00](https://raw.githubusercontent.com/anvaka/ngraph.generators/master/doc/wattsStrogatz_100_20_00.png)
-![Watts Strogatz n = 100 k = 20 b = 0.01](https://raw.gi.com/anvaka/ngraph.generators/master/doc/wattsStrogatz_100_20_01.png)
-![Watts Strogatz n = 100 k = 20 b = 0.10](https://raw.gi.com/anvaka/ngraph.generators/master/doc/wattsStrogatz_100_20_10.png)
-![Watts Strogatz n = 100 k = 20 b = 0.50](https://raw.gi.com/anvaka/ngraph.generators/master/doc/wattsStrogatz_100_20_50.png)
-![Watts Strogatz n = 20 k = 04 b = 0.02](https://raw.gi.com/anvaka/ngraph.generators/master/doc/wattsStrogatz_20_04_02.png)
+
+### Watts Strogatz n = 100 k = 20 b = 0.01
+![Watts Strogatz n = 100 k = 20 b = 0.01](https://raw.githubusercontent.com/anvaka/ngraph.generators/master/doc/wattsStrogatz_100_20_01.png)
+
+### Watts Strogatz n = 100 k = 20 b = 0.10
+![Watts Strogatz n = 100 k = 20 b = 0.10](https://raw.githubusercontent.com/anvaka/ngraph.generators/master/doc/wattsStrogatz_100_20_10.png)
+
+### Watts Strogatz n = 100 k = 20 b = 0.50
+![Watts Strogatz n = 100 k = 20 b = 0.50](https://raw.githubusercontent.com/anvaka/ngraph.generators/master/doc/wattsStrogatz_100_20_50.png)
+
+### Watts Strogatz n = 20 k = 04 b = 0.02
+![Watts Strogatz n = 20 k = 04 b = 0.02](https://raw.githubusercontent.com/anvaka/ngraph.generators/master/doc/wattsStrogatz_20_04_02.png)
