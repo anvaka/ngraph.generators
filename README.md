@@ -1,7 +1,7 @@
 Graph generators
 =================
 This module generates various graphs. It is part of larger [ngraph](https://github.com/anvaka/ngraph)
-family. If you something not as simple as generated graphs, please check out
+family. If you need something not as simple as generated graphs, please check out
 [ngraph.sparce-collection](https://github.com/anvaka/ngraph.sparse-collection) repository
 which contains graphs from University of Florida collection.
 
