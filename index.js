@@ -272,7 +272,6 @@ function wattsStrogatz(n, k, p, seed) {
   for (j = 1; j < neighborsSize; ++j) {
     for (i = 0; i < n; ++i) {
       if (Math.random() < p) {
-        console.log('wh?', p);
         var from = i;
         to = (j + i) % n;
 
