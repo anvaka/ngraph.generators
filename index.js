@@ -252,6 +252,9 @@ function noLinks(n) {
 function wattsStrogatz(n, k, p, seed) {
   if (k >= n) throw new Error('Choose smaller `k`. It cannot be larger than number of nodes `n`');
 
+
+  var random = require('ngraph.random').random(seed || 42);
+
   var g = createGraph(), i, to;
   for (i = 0; i < n; ++i) {
     g.addNode(i);
@@ -271,11 +274,11 @@ function wattsStrogatz(n, k, p, seed) {
   // no self loops or multiple edges allowed
   for (j = 1; j < neighborsSize; ++j) {
     for (i = 0; i < n; ++i) {
-      if (Math.random() < p) {
+      if (random.nextDouble() < p) {
         var from = i;
         to = (j + i) % n;
 
-        var newTo = Math.floor(Math.random() * n);
+        var newTo = random.next(n);
         var needsRewire = (newTo === from || g.hasLink(from, newTo));
         if (needsRewire && g.getLinks(from).length === n - 1) {
           // we cannot rewire this node, it has too many links.
@@ -283,7 +286,7 @@ function wattsStrogatz(n, k, p, seed) {
         }
         // Enforce no self-loops or multiple edges
         while (needsRewire) {
-          newTo = Math.floor(Math.random() * n);
+          newTo = random.next(n);
           needsRewire = (newTo === from || g.hasLink(from, newTo));
         }
         var link = g.hasLink(from, to);
