@@ -9,6 +9,8 @@ which contains graphs from University of Florida collection.
 
 # Supported graphs
 
+All images below are clickable and point to interactive 3d visualization, done by `ngraph.three` library.
+
 ## Ladder
 
 ``` js
