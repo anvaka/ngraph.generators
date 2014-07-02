@@ -139,3 +139,18 @@ test('Create grid3d', function(t) {
     t.end();
   });
 });
+
+test('Create wattsStrogatz', function(t) {
+  t.test('4 nodes 2 link, 0% rebuild', function (t) {
+    var graph = generators.wattsStrogatz(4, 2, 0);
+    t.equal(graph.getNodesCount(), 4, "Unexpected number of nodes for Watts-Strogatz graph n=4, k=2, p=0");
+    t.equal(graph.getLinksCount(), 4, "Unexpected number of links for Watts-Strogatz graph n=4, k=2, p=0");
+    t.end();
+  });
+  t.test('20 nodes 0 links, 100% rebuild', function (t) {
+    var graph = generators.wattsStrogatz(20, 0, 1);
+    t.equal(graph.getNodesCount(), 20, "Unexpected number of nodes for Watts-Strogatz graph n=20, k=0, p=1");
+    t.equal(graph.getLinksCount(), 0, "Unexpected number of links for Watts-Strogatz graph n=20, k=0, p=1");
+    t.end();
+  });
+});
