@@ -13,11 +13,11 @@ module.exports = {
 
 var createGraph = require('ngraph.graph');
 
+function ladder(n) {
 /**
  * Ladder graph is a graph in form of ladder
  * @param {Number} n Represents number of steps in the ladder
  */
-function ladder(n) {
   if (!n || n < 0) {
     throw new Error("Invalid number of nodes");
   }
@@ -40,12 +40,12 @@ function ladder(n) {
   return g;
 }
 
+function circularLadder(n) {
 /**
- * Generates a graph in a form of a circular ladder with n steps.
+ * Circular ladder with n steps.
  *
  * @param {Number} n of steps in the ladder.
  */
-function circularLadder(n) {
     if (!n || n < 0) {
         throw new Error("Invalid number of nodes");
     }
@@ -57,12 +57,12 @@ function circularLadder(n) {
     return g;
 }
 
+function complete(n) {
 /**
- * Generates complete graph Kn.
+ * Complete graph Kn.
  *
  * @param {Number} n represents number of nodes in the complete graph.
  */
-function complete(n) {
   if (!n || n < 1) {
     throw new Error("At least two nodes are expected for complete graph");
   }
@@ -83,14 +83,14 @@ function complete(n) {
   return g;
 }
 
+function completeBipartite (n, m) {
 /**
- * Generates complete bipartite graph K n,m. Each node in the
+ * Complete bipartite graph K n,m. Each node in the
  * first partition is connected to all nodes in the second partition.
  *
  * @param {Number} n represents number of nodes in the first graph partition
  * @param {Number} m represents number of nodes in the second graph partition
  */
-function completeBipartite (n, m) {
   if (!n || !m || n < 0 || m < 0) {
     throw new Error("Graph dimensions are invalid. Number of nodes in each partition should be greate than 0");
   }
@@ -107,12 +107,12 @@ function completeBipartite (n, m) {
   return g;
 }
 
+function path(n) {
 /**
- * Generates a path-graph with n steps.
+ * Path graph with n steps.
  *
  * @param {Number} n number of nodes in the path
  */
-function path(n) {
   if (!n || n < 0) {
     throw new Error("Invalid number of nodes");
   }
@@ -130,13 +130,13 @@ function path(n) {
 }
 
 
+function grid(n, m) {
 /**
- * Generates a graph in a form of a grid with n rows and m columns.
+ * Grid graph with n rows and m columns.
  *
  * @param {Number} n of rows in the graph.
  * @param {Number} m of columns in the graph.
  */
-function grid(n, m) {
   if (n < 1 || m < 1) {
     throw new Error("Invalid number of nodes in grid graph");
   }
@@ -159,14 +159,14 @@ function grid(n, m) {
   return g;
 }
 
+function grid3(n, m, z) {
 /**
- * Generates a graph in a form of a 3d grid with n rows and m columns and z levels.
+ * 3D grid with n rows and m columns and z levels.
  *
  * @param {Number} n of rows in the graph.
  * @param {Number} m of columns in the graph.
  * @param {Number} z of levels in the graph.
  */
-function grid3(n, m, z) {
   if (n < 1 || m < 1 || z < 1) {
     throw new Error("Invalid number of nodes in grid3 graph");
   }
@@ -193,12 +193,12 @@ function grid3(n, m, z) {
   return g;
 }
 
+function balancedBinTree(n) {
 /**
- * Creates balanced binary tree with n levels.
+ * Balanced binary tree with n levels.
  *
  * @param {Number} n of levels in the binary tree
  */
-function balancedBinTree(n) {
   if (n < 0) {
     throw new Error("Invalid number of nodes in balanced tree");
   }
@@ -222,12 +222,12 @@ function balancedBinTree(n) {
   return g;
 }
 
+function noLinks(n) {
 /**
- * Creates graph with no links
+ * Graph with no links
  *
  * @param {Number} n of nodes in the graph
  */
-function noLinks(n) {
   if (n < 0) {
     throw new Error("Number of nodes shoul be >= 0");
   }
@@ -240,16 +240,16 @@ function noLinks(n) {
   return g;
 }
 
+function wattsStrogatz(n, k, p, seed) {
 /**
- * Returns a Watts-Strogatz small-world graph.
- * 
+ * Watts-Strogatz small-world graph.
+ *
  * @param {Number} n The number of nodes
  * @param {Number} k Each node is connected to k nearest neighbors in ring topology
  * @param {Number} p The probability of rewiring each edge
 
  * @see https://github.com/networkx/networkx/blob/master/networkx/generators/random_graphs.py
  */
-function wattsStrogatz(n, k, p, seed) {
   if (k >= n) throw new Error('Choose smaller `k`. It cannot be larger than number of nodes `n`');
 
 
