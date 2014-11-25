@@ -92,7 +92,7 @@ function completeBipartite (n, m) {
  * @param {Number} m represents number of nodes in the second graph partition
  */
   if (!n || !m || n < 0 || m < 0) {
-    throw new Error("Graph dimensions are invalid. Number of nodes in each partition should be greate than 0");
+    throw new Error("Graph dimensions are invalid. Number of nodes in each partition should be greater than 0");
   }
 
   var g = createGraph(),
