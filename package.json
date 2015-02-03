@@ -1,6 +1,6 @@
 {
   "name": "ngraph.generators",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Graph generators library",
   "main": "index.js",
   "scripts": {
