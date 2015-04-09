@@ -11,6 +11,9 @@
     "url": "https://github.com/anvaka/ngraph.generators.git"
   },
   "keywords": [
+    "graph",
+    "generator",
+    "random",
     "ngraph",
     "ngraphjs"
   ],
@@ -23,7 +26,7 @@
     "tap": "~0.4.4"
   },
   "dependencies": {
-    "ngraph.graph": "0.0.10",
+    "ngraph.graph": "0.0.11",
     "ngraph.random": "0.0.1"
   }
 }
