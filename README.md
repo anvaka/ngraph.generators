@@ -90,7 +90,7 @@ In this model generator takes three arguments:
 
 * `n` - number of nodes
 * `k` - number of edges for each node. Originally node is connected with `k` nearest neighbours on a circle graph
-* `b` - probabilty of an edge rewrite. In other words node changes it's nearest neighbor to a random
+* `b` - probability of an edge rewrite. In other words node changes it's nearest neighbor to a random
 node inside graph with probability `b`.
 
 ``` js

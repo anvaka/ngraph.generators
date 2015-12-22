@@ -228,7 +228,7 @@ function noLinks(n) {
  * @param {Number} n of nodes in the graph
  */
   if (n < 0) {
-    throw new Error("Number of nodes shoul be >= 0");
+    throw new Error("Number of nodes should be >= 0");
   }
 
   var g = createGraph(), i;
