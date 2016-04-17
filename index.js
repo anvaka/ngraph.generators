@@ -8,7 +8,8 @@ module.exports = {
   grid: grid,
   grid3: grid3,
   noLinks: noLinks,
-  wattsStrogatz: wattsStrogatz
+  wattsStrogatz: wattsStrogatz,
+  cliqueCircle: cliqueCircle
 };
 
 var createGraph = require('ngraph.graph');
@@ -237,6 +238,43 @@ function noLinks(n) {
   }
 
   return g;
+}
+
+function cliqueCircle(cliqueCount, cliqueSize) {
+/**
+ * A circular graph with cliques instead of individual nodes
+ *
+ * @param {Number} cliqueCount number of cliques inside circle
+ * @param {Number} cliqueSize number of nodes inside each clique
+ */
+
+  if (cliqueCount < 1) throw new Error('Invalid number of cliqueCount in cliqueCircle');
+  if (cliqueSize < 1) throw new Error('Invalid number of cliqueSize in cliqueCircle');
+
+  var graph = createGraph();
+
+  for (var i = 0; i < cliqueCount; ++i) {
+    appendClique(cliqueSize, i * cliqueSize)
+
+    if (i > 0) {
+      graph.addLink(i * cliqueSize, i * cliqueSize - 1);
+    }
+  }
+  graph.addLink(0, graph.getNodesCount() - 1);
+
+  return graph;
+
+  function appendClique(size, from) {
+    for (var i = 0; i < size; ++i) {
+      graph.addNode(i + from)
+    }
+
+    for (var i = 0; i < size; ++i) {
+      for (var j = i + 1; j < size; ++j) {
+        graph.addLink(i + from, j + from)
+      }
+    }
+  }
 }
 
 function wattsStrogatz(n, k, p, seed) {
