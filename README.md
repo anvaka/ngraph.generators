@@ -11,7 +11,7 @@ which contains graphs from University of Florida collection.
 
 All images below are clickable and point to interactive 3d visualization, done by `ngraph.three` library.
 
-## Ladder
+## ladder
 
 ``` js
 // Creates a ladder with 10 steps
@@ -19,7 +19,7 @@ var graph = require('ngraph.generators').ladder(10);
 ```
 [![Ladder](https://raw.githubusercontent.com/anvaka/ngraph.generators/master/doc/ladder.png)](http://anvaka.github.io/ngraph/examples/three.js/Basic/index.html?graph=ladder&n=10)
 
-## Complete
+## complete
 
 ``` js
 // Creates complete graph K6
@@ -27,7 +27,7 @@ var graph = require('ngraph.generators').complete(6);
 ```
 [![Complete](https://raw.githubusercontent.com/anvaka/ngraph.generators/master/doc/complete.png)](http://anvaka.github.io/ngraph/examples/three.js/Basic/index.html?graph=complete&n=6)
 
-## CompleteBipartite
+## completeBipartite
 
 ``` js
 // Creates complete bipartite graph K 3,3.
@@ -35,7 +35,7 @@ var graph = require('ngraph.generators').completeBipartite(3, 3);
 ```
 [![Complete Bipartite](https://raw.githubusercontent.com/anvaka/ngraph.generators/master/doc/completeBipartite.png)](http://anvaka.github.io/ngraph/examples/three.js/Basic/index.html?graph=completeBipartite&n=3&m=3)
 
-## BalancedBinTree
+## balancedBinTree
 
 ``` js
 // Creates balanced binary tree with n levels.
@@ -43,7 +43,7 @@ var graph = require('ngraph.generators').balancedBinTree(5);
 ```
 [![Balanced Binary Tree](https://raw.githubusercontent.com/anvaka/ngraph.generators/master/doc/balancedBinTree.png)](http://anvaka.github.io/ngraph/examples/three.js/Basic/index.html?graph=balancedBinTree&n=5)
 
-## Path
+## path
 
 ``` js
 // Generates a path-graph with 10 steps.
@@ -51,7 +51,7 @@ var graph = require('ngraph.generators').path(10);
 ```
 [![Path](https://raw.githubusercontent.com/anvaka/ngraph.generators/master/doc/path.png)](http://anvaka.github.io/ngraph/examples/three.js/Basic/index.html?graph=path&n=10)
 
-## CircularLadder
+## circularLadder
 
 ``` js
 // Generates a graph in a form of a circular ladder with 5 steps.
@@ -59,7 +59,7 @@ var graph = require('ngraph.generators').circularLadder(5);
 ```
 [![Circular Ladder](https://raw.githubusercontent.com/anvaka/ngraph.generators/master/doc/circularLadder.png)](http://anvaka.github.io/ngraph/examples/three.js/Basic/index.html?graph=circularLadder&n=5)
 
-## Grid
+## grid
 
 ``` js
 // Generates a graph in a form of a grid with 10 rows and 10 columns.
@@ -67,7 +67,7 @@ var graph = require('ngraph.generators').grid(10, 10);
 ```
 [![Grid](https://raw.githubusercontent.com/anvaka/ngraph.generators/master/doc/grid.png)](http://anvaka.github.io/ngraph/examples/three.js/Basic/index.html?graph=grid&n=10&m=10)
 
-## Grid3
+## grid3
 
 ``` js
 // Generates a graph in a form of a 3d grid with 5 rows and 5 columns and 5 levels.
@@ -75,13 +75,24 @@ var graph = require('ngraph.generators').grid3(5, 5, 5);
 ```
 [![Grid 3d](https://raw.githubusercontent.com/anvaka/ngraph.generators/master/doc/grid3.png)](http://anvaka.github.io/ngraph/examples/three.js/Basic/index.html?graph=grid3&z=800&n=10&m=10&k=10)
 
-## NoLinks
+## noLinks
 
 ``` js
 // Creates graph with 100 nodes and 0 links
 var graph = require('ngraph.generators').noLinks(100);
 ```
 [![No Links](https://raw.githubusercontent.com/anvaka/ngraph.generators/master/doc/noLinks.png)](http://anvaka.github.io/ngraph/examples/three.js/Basic/index.html?graph=noLinks&n=100)
+
+## cliqueCircle
+
+``` js
+var cliqueCount = 10;
+var cliqueSize = 5;
+
+// create a circle, with `cliqueCount` nodes. Each node is a fully connected
+// graph with `cliqueSize` nodes
+var graph = require('ngraph.generators').cliqueCircle(cliqueCount, cliqueSize);
+```
 
 ## WattsStrogatz
 
