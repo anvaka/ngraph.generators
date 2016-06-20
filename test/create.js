@@ -154,3 +154,23 @@ test('Create wattsStrogatz', function(t) {
     t.end();
   });
 });
+
+test('it can use custom factory', function(t) {
+  var called = 0;
+  var graph = generators.factory(createGraph).ladder(3);
+  // t.equal(graph.getNodesCount(), 6, "Unexpected number of nodes for ladder graph");
+  // t.equal(graph.getLinksCount(), 7, "Unexpected number of links for ladder graph");
+  t.ok(called > 0, 'Factory was called')
+  t.end();
+
+  function createGraph() {
+    return {
+      addLink: addLink
+    }
+  }
+
+  function addLink(from, to) {
+    called += 1;
+  }
+});
+

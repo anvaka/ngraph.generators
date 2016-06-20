@@ -128,3 +128,29 @@ var g5 = require('ngraph.generators').wattsStrogatz(20, 4, 0.02);
 
 ### Watts Strogatz n = 20 k = 04 b = 0.02 (g5):
 [![Watts Strogatz n = 20 k = 04 b = 0.02](https://raw.githubusercontent.com/anvaka/ngraph.generators/master/doc/wattsStrogatz_20_04_02.png)](http://anvaka.github.io/ngraph/examples/three.js/Basic/index.html?graph=wattsStrogatz&n=20&m=4&k=0.02)
+
+# Custom `createGraph()`
+
+By default this library uses `ngraph.graph` module to create new instances
+of a graph. If you want to use your own module, you can use `factory` method:
+
+``` js
+var generate = require('ngraph.generators').functory(function createGraph() {
+  // the following methods are required from the createGraph api:
+  return {
+    addLink(from, to) {
+      // ...
+    },
+    addNode(nodeId) {
+    },
+    getNodesCount() {
+    }
+  }
+});
+
+// now generators have the same methods as regular ngraph.generators:
+var graph = generate.ladder(3);
+generate.grid(10, 10);
+generate.balancedBinTree(4);
+// etc.
+```
