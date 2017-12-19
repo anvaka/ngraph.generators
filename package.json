@@ -29,7 +29,7 @@
     "tap": "~0.4.4"
   },
   "dependencies": {
-    "ngraph.graph": "0.0.12",
+    "ngraph.graph": "0.0.14",
     "ngraph.random": "0.0.1"
   }
 }
