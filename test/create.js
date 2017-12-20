@@ -44,7 +44,7 @@ test('Create complete', function(t) {
 test('Circular ladder', function(t) {
   var size = 3;
   var graph = generators.circularLadder(size);
-  // cricular ladder is like a ladder, but last two and first two 
+  // circular ladder is like a ladder, but last two and first two 
   // nodes are connected
   // ┌-----┐
   // *--*--*
@@ -157,7 +157,7 @@ test('Create wattsStrogatz', function(t) {
 
 test('it can use custom factory', function(t) {
   var called = 0;
-  var graph = generators.factory(createGraph).ladder(3);
+  generators.factory(createGraph).ladder(3);
   // t.equal(graph.getNodesCount(), 6, "Unexpected number of nodes for ladder graph");
   // t.equal(graph.getLinksCount(), 7, "Unexpected number of links for ladder graph");
   t.ok(called > 0, 'Factory was called')
@@ -169,7 +169,7 @@ test('it can use custom factory', function(t) {
     }
   }
 
-  function addLink(from, to) {
+  function addLink(/* from, to */) {
     called += 1;
   }
 });
