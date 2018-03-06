@@ -30,6 +30,6 @@
   },
   "dependencies": {
     "ngraph.graph": "0.0.14",
-    "ngraph.random": "0.0.1"
+    "ngraph.random": "0.1.0"
   }
 }
