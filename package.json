@@ -1,6 +1,6 @@
 {
   "name": "ngraph.generators",
-  "version": "0.0.19",
+  "version": "18.0.0",
   "description": "Graph generators library",
   "main": "index.js",
   "scripts": {
@@ -29,7 +29,7 @@
     "tap": "~0.4.4"
   },
   "dependencies": {
-    "ngraph.graph": "0.0.14",
+    "ngraph.graph": "18.0.0",
     "ngraph.random": "0.1.0"
   }
 }
