@@ -56,34 +56,32 @@ test('Circular ladder', function(t) {
   t.end();
 });
 
-test('Create grid', function(t) {
-  // grid is a grid. This is 3 x 4 grid:
-  // *--*--*--*
-  // |  |  |  |
-  // *--*--*--*
-  // |  |  |  |
-  // *--*--*--*
-  t.test('3x4 grid', function (t) {
-    var graph = generators.grid(3, 4);
-    t.equal(graph.getNodesCount(), 12, "Unexpected number of nodes for grid graph");
-    t.equal(graph.getLinksCount(), 17, "Unexpected number of links for grid graph");
-    t.end();
-  });
+// grid is a grid. This is 3 x 4 grid:
+// *--*--*--*
+// |  |  |  |
+// *--*--*--*
+// |  |  |  |
+// *--*--*--*
+test('3x4 grid', function (t) {
+  var graph = generators.grid(3, 4);
+  t.equal(graph.getNodesCount(), 12, "Unexpected number of nodes for grid graph");
+  t.equal(graph.getLinksCount(), 17, "Unexpected number of links for grid graph");
+  t.end();
+});
 
-  t.test('1x1 grid', function (t) {
-    var graph = generators.grid(1, 1);
-    t.equal(graph.getNodesCount(), 1, "Unexpected number of nodes for 1x1 grid graph");
-    t.equal(graph.getLinksCount(), 0, "Unexpected number of links for 1x1 grid graph");
-    t.end();
-  });
+test('1x1 grid', function (t) {
+  var graph = generators.grid(1, 1);
+  t.equal(graph.getNodesCount(), 1, "Unexpected number of nodes for 1x1 grid graph");
+  t.equal(graph.getLinksCount(), 0, "Unexpected number of links for 1x1 grid graph");
+  t.end();
+});
 
-  t.test('1x2 grid', function (t) {
-    // this is a path of two nodes *--*
-    var graph = generators.grid(1, 2);
-    t.equal(graph.getNodesCount(), 2, "Unexpected number of nodes for 1x2 grid graph");
-    t.equal(graph.getLinksCount(), 1, "Unexpected number of links for 1x2 grid graph");
-    t.end();
-  });
+test('1x2 grid', function (t) {
+  // this is a path of two nodes *--*
+  var graph = generators.grid(1, 2);
+  t.equal(graph.getNodesCount(), 2, "Unexpected number of nodes for 1x2 grid graph");
+  t.equal(graph.getLinksCount(), 1, "Unexpected number of links for 1x2 grid graph");
+  t.end();
 });
 
 test('Create balanced binary tree', function(t) {
@@ -106,53 +104,50 @@ test('Create no links', function(t) {
 });
 
 
-test('Create grid3d', function(t) {
-  // grid is a grid. This is 3 x 4 x 2 grid:
-  //
-  //   *---*--*--*
-  //  /  /  /  / |
-  // *--*--*--*  *
-  // |  |  |  | /|
-  // *--*--*--*  *
-  // |  |  |  | /
-  // *--*--*--*
-  //
-  t.test('3x4x2 grid', function (t) {
-    var graph = generators.grid3(3, 4, 2);
-    t.equal(graph.getNodesCount(), 24, "Unexpected number of nodes for grid3 graph");
-    t.equal(graph.getLinksCount(), 46, "Unexpected number of links for grid3 graph");
-    t.end();
-  });
-
-  t.test('1x1x1 grid', function (t) {
-    var graph = generators.grid3(1, 1, 1);
-    t.equal(graph.getNodesCount(), 1, "Unexpected number of nodes for 1x1x1 grid3 graph");
-    t.equal(graph.getLinksCount(), 0, "Unexpected number of links for 1x1x1 grid3 graph");
-    t.end();
-  });
-
-  t.test('1x2x1 grid', function (t) {
-    // this is a path of two nodes *--*
-    var graph = generators.grid3(1, 2, 1);
-    t.equal(graph.getNodesCount(), 2, "Unexpected number of nodes for 1x2x1 grid3 graph");
-    t.equal(graph.getLinksCount(), 1, "Unexpected number of links for 1x2x1 grid3 graph");
-    t.end();
-  });
+// grid is a grid. This is 3 x 4 x 2 grid:
+//
+//   *---*--*--*
+//  /  /  /  / |
+// *--*--*--*  *
+// |  |  |  | /|
+// *--*--*--*  *
+// |  |  |  | /
+// *--*--*--*
+//
+test('3x4x2 grid', function (t) {
+  var graph = generators.grid3(3, 4, 2);
+  t.equal(graph.getNodesCount(), 24, "Unexpected number of nodes for grid3 graph");
+  t.equal(graph.getLinksCount(), 46, "Unexpected number of links for grid3 graph");
+  t.end();
 });
 
-test('Create wattsStrogatz', function(t) {
-  t.test('4 nodes 2 link, 0% rebuild', function (t) {
-    var graph = generators.wattsStrogatz(4, 2, 0);
-    t.equal(graph.getNodesCount(), 4, "Unexpected number of nodes for Watts-Strogatz graph n=4, k=2, p=0");
-    t.equal(graph.getLinksCount(), 4, "Unexpected number of links for Watts-Strogatz graph n=4, k=2, p=0");
-    t.end();
-  });
-  t.test('20 nodes 0 links, 100% rebuild', function (t) {
-    var graph = generators.wattsStrogatz(20, 0, 1);
-    t.equal(graph.getNodesCount(), 20, "Unexpected number of nodes for Watts-Strogatz graph n=20, k=0, p=1");
-    t.equal(graph.getLinksCount(), 0, "Unexpected number of links for Watts-Strogatz graph n=20, k=0, p=1");
-    t.end();
-  });
+test('1x1x1 grid', function (t) {
+  var graph = generators.grid3(1, 1, 1);
+  t.equal(graph.getNodesCount(), 1, "Unexpected number of nodes for 1x1x1 grid3 graph");
+  t.equal(graph.getLinksCount(), 0, "Unexpected number of links for 1x1x1 grid3 graph");
+  t.end();
+});
+
+test('1x2x1 grid', function (t) {
+  // this is a path of two nodes *--*
+  var graph = generators.grid3(1, 2, 1);
+  t.equal(graph.getNodesCount(), 2, "Unexpected number of nodes for 1x2x1 grid3 graph");
+  t.equal(graph.getLinksCount(), 1, "Unexpected number of links for 1x2x1 grid3 graph");
+  t.end();
+});
+
+test('4 nodes 2 link, 0% rebuild', function (t) {
+  var graph = generators.wattsStrogatz(4, 2, 0);
+  t.equal(graph.getNodesCount(), 4, "Unexpected number of nodes for Watts-Strogatz graph n=4, k=2, p=0");
+  t.equal(graph.getLinksCount(), 4, "Unexpected number of links for Watts-Strogatz graph n=4, k=2, p=0");
+  t.end();
+});
+
+test('20 nodes 0 links, 100% rebuild', function (t) {
+  var graph = generators.wattsStrogatz(20, 0, 1);
+  t.equal(graph.getNodesCount(), 20, "Unexpected number of nodes for Watts-Strogatz graph n=20, k=0, p=1");
+  t.equal(graph.getLinksCount(), 0, "Unexpected number of links for Watts-Strogatz graph n=20, k=0, p=1");
+  t.end();
 });
 
 test('it can use custom factory', function(t) {

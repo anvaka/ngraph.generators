@@ -4,8 +4,7 @@
   "description": "Graph generators library",
   "main": "index.js",
   "scripts": {
-    "test": "tap test/*.js",
-    "cover": "istanbul cover --dir reports/coverage node_modules/argg test/*.js"
+    "test": "tap test/*.js"
   },
   "repository": {
     "type": "git",
@@ -24,9 +23,7 @@
     "url": "https://github.com/anvaka/ngraph.generators/issues"
   },
   "devDependencies": {
-    "argg": "0.0.2",
-    "istanbul": "^0.4.2",
-    "tap": "~0.4.4"
+    "tap": "^14.1.1"
   },
   "dependencies": {
     "ngraph.graph": "18.0.0",
