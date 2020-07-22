@@ -23,7 +23,7 @@
     "url": "https://github.com/anvaka/ngraph.generators/issues"
   },
   "devDependencies": {
-    "tap": "^14.1.1"
+    "tap": "^14.10.8"
   },
   "dependencies": {
     "ngraph.graph": "^19.1.0",
