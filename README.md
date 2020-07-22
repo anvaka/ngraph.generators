@@ -135,7 +135,7 @@ By default this library uses `ngraph.graph` module to create new instances
 of a graph. If you want to use your own module, you can use `factory` method:
 
 ``` js
-var generate = require('ngraph.generators').functory(function createGraph() {
+var generate = require('ngraph.generators').factory(function createGraph() {
   // the following methods are required from the createGraph api:
   return {
     addLink(from, to) {
