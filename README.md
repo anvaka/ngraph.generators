@@ -7,6 +7,21 @@ which contains graphs from University of Florida collection.
 
 [![build status](https://secure.travis-ci.org/anvaka/ngraph.generators.png)](http://travis-ci.org/anvaka/ngraph.generators)
 
+
+# Install
+
+With npm do:
+
+```
+npm istall ngraph.generators
+```
+
+If you prefer CDN you can also do:
+
+``` html
+<script src='https://cdn.jsdelivr.net/npm/ngraph.generators/dist@19.0.1/ngraph.generators.min.js'></script>
+```
+
 # Supported graphs
 
 All images below are clickable and point to interactive 3d visualization, done by `ngraph.three` library.

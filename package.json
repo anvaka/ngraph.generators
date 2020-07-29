@@ -4,7 +4,8 @@
   "description": "Graph generators library",
   "main": "index.js",
   "scripts": {
-    "test": "tap test/*.js"
+    "test": "tap test/*.js",
+    "build": "browserify index.js -s generators -o dist/ngraph.generators.js && uglifyjs dist/ngraph.generators.js -o dist/ngraph.generators.min.js"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,8 @@
     "url": "https://github.com/anvaka/ngraph.generators/issues"
   },
   "devDependencies": {
-    "tap": "^14.10.8"
+    "tap": "^14.10.8",
+    "uglify-js": "^3.10.0"
   },
   "dependencies": {
     "ngraph.graph": "^19.1.0",
