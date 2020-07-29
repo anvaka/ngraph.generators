@@ -19,7 +19,7 @@ npm istall ngraph.generators
 If you prefer CDN you can also do:
 
 ``` html
-<script src='https://cdn.jsdelivr.net/npm/ngraph.generators/dist@19.0.1/ngraph.generators.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/ngraph.generators@19.0.2/dist/ngraph.generators.min.js'></script>
 ```
 
 # Supported graphs
