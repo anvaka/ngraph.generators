@@ -10,7 +10,13 @@ function factory(createGraph) {
     ladder: ladder,
     complete: complete,
     completeBipartite: completeBipartite,
+
+    // these are synonims
     balancedBinTree: balancedBinTree,
+    balancedBinaryTree: balancedBinTree,
+    binaryTree: balancedBinTree,
+    binTree: balancedBinTree,
+
     path: path,
     circularLadder: circularLadder,
     grid: grid,
