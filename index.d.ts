@@ -1,7 +1,7 @@
 declare module "ngraph.generators" {
     import { Graph } from 'ngraph.graph'
 
-    interface factory { 
+    interface Factory { 
         /**
          * Ladder graph is a graph in form of ladder
          * @param {Number} n Represents number of steps in the ladder
@@ -83,5 +83,7 @@ declare module "ngraph.generators" {
         cliqueCircle<NodeData = any, LinkData = any>(n: number, m: number): Graph<NodeData, LinkData>
     }
 
-    export default factory
+    const factory: Factory;
+
+    export default factory;
 }
