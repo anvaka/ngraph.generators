@@ -13,7 +13,7 @@ which contains graphs from University of Florida collection.
 With npm do:
 
 ```
-npm istall ngraph.generators
+npm install ngraph.generators
 ```
 
 If you prefer CDN you can also do:
