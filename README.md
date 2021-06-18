@@ -22,6 +22,8 @@ If you prefer CDN you can also do:
 <script src='https://cdn.jsdelivr.net/npm/ngraph.generators@19.2.0/dist/ngraph.generators.min.js'></script>
 ```
 
+In case of CDN the library will be accessible under global name `generators`
+
 # Supported graphs
 
 All images below are clickable and point to interactive 3d visualization, done by `ngraph.three` library.
