@@ -5,7 +5,7 @@ family. If you need something not as simple as generated graphs, please check ou
 [ngraph.sparce-collection](https://github.com/anvaka/ngraph.sparse-collection) repository
 which contains graphs from University of Florida collection.
 
-[![build status](https://secure.travis-ci.org/anvaka/ngraph.generators.png)](http://travis-ci.org/anvaka/ngraph.generators)
+[![Build Status](https://github.com/anvaka/ngraph.generators/actions/workflows/tests.yaml/badge.svg)](https://github.com/anvaka/ngraph.generators/actions/workflows/tests.yaml)
 
 
 # Install
