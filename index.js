@@ -11,7 +11,7 @@ function factory(createGraph) {
     complete: complete,
     completeBipartite: completeBipartite,
 
-    // these are synonims
+    // these are synonyms
     balancedBinTree: balancedBinTree,
     balancedBinaryTree: balancedBinTree,
     binaryTree: balancedBinTree,
