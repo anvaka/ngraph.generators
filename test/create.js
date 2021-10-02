@@ -12,6 +12,33 @@ test('Create ladder', function(t) {
   t.end();
 });
 
+test('boundary conditions are checked', function(t) {
+  t.throws(() => generators.ladder(), "Ladder graph with no nodes should throw");
+  t.throws(() => generators.ladder(0), "Ladder graph with 0 nodes should throw");
+  t.throws(() => generators.ladder(-10), "Ladder graph with negative nodes should throw");
+
+  t.throws(() => generators.circularLadder(), "Circular ladder graph with no nodes should throw");
+  t.throws(() => generators.circularLadder(0), "Circular ladder graph with 0 nodes should throw");
+  t.throws(() => generators.circularLadder(-10), "Circular ladder graph with negative nodes should throw");
+
+  t.throws(() => generators.complete(   ), "Complete graph with no nodes should throw");
+  t.throws(() => generators.complete(  0), "Complete graph with 0 nodes should throw");
+  t.throws(() => generators.complete(-10), "Complete graph with negative nodes should throw");
+
+  t.throws(() => generators.path(   ), "Path graph with no nodes should throw");
+  t.throws(() => generators.path(  0), "Path graph with 0 nodes should throw");
+  t.throws(() => generators.path(-10), "Path graph with negative nodes should throw");
+
+  t.throws(() => generators.balancedBinaryTree(   ), "Binary tree graph with no nodes should throw");
+  t.throws(() => generators.balancedBinaryTree(  0), "Binary tree graph with 0 nodes should throw");
+  t.throws(() => generators.balancedBinaryTree(-10), "Binary tree graph with negative nodes should throw");
+
+  t.throws(() => generators.noLinks(   ), "No links graph with no nodes should throw");
+  t.throws(() => generators.noLinks(  0), "No links graph with 0 nodes should throw");
+  t.throws(() => generators.noLinks(-10), "No links graph with negative nodes should throw");
+  t.end();
+});
+
 test('Create path', function(t) {
   var size = 5;
   var graph = generators.path(size);
