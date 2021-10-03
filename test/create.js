@@ -30,11 +30,8 @@ test('boundary conditions are checked', function(t) {
   t.throws(() => generators.path(-10), "Path graph with negative nodes should throw");
 
   t.throws(() => generators.balancedBinaryTree(   ), "Binary tree graph with no nodes should throw");
-  t.throws(() => generators.balancedBinaryTree(  0), "Binary tree graph with 0 nodes should throw");
   t.throws(() => generators.balancedBinaryTree(-10), "Binary tree graph with negative nodes should throw");
 
-  t.throws(() => generators.noLinks(   ), "No links graph with no nodes should throw");
-  t.throws(() => generators.noLinks(  0), "No links graph with 0 nodes should throw");
   t.throws(() => generators.noLinks(-10), "No links graph with negative nodes should throw");
   t.end();
 });

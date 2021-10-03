@@ -212,8 +212,8 @@ function factory(createGraph) {
   *
   * @param {Number} n of levels in the binary tree
   */
-    if (n < 0) {
-      throw new Error("Invalid number of nodes in balanced tree");
+    if (n === undefined || n < 0) {
+      throw new Error("Invalid number of levels in balanced tree");
     }
     var g = createGraph(),
         count = Math.pow(2, n),
