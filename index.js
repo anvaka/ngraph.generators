@@ -33,7 +33,7 @@ function factory(createGraph) {
   * @param {Number} n Represents number of steps in the ladder
   */
     if (!n || n < 0) {
-      throw new Error("Invalid number of nodes");
+      throw new Error('Invalid number of nodes');
     }
 
     var g = createGraph(),
@@ -61,7 +61,7 @@ function factory(createGraph) {
   * @param {Number} n of steps in the ladder.
   */
       if (!n || n < 0) {
-          throw new Error("Invalid number of nodes");
+          throw new Error('Invalid number of nodes');
       }
 
       var g = ladder(n);
@@ -78,7 +78,7 @@ function factory(createGraph) {
   * @param {Number} n represents number of nodes in the complete graph.
   */
     if (!n || n < 1) {
-      throw new Error("At least two nodes are expected for complete graph");
+      throw new Error('At least two nodes are expected for complete graph');
     }
 
     var g = createGraph(),
@@ -105,7 +105,7 @@ function factory(createGraph) {
   * @param {Number} m represents number of nodes in the second graph partition
   */
     if (!n || !m || n < 0 || m < 0) {
-      throw new Error("Graph dimensions are invalid. Number of nodes in each partition should be greater than 0");
+      throw new Error('Graph dimensions are invalid. Number of nodes in each partition should be greater than 0');
     }
 
     var g = createGraph(),
@@ -127,7 +127,7 @@ function factory(createGraph) {
   * @param {Number} n number of nodes in the path
   */
     if (!n || n < 0) {
-      throw new Error("Invalid number of nodes");
+      throw new Error('Invalid number of nodes');
     }
 
     var g = createGraph(),
@@ -151,7 +151,7 @@ function factory(createGraph) {
   * @param {Number} m of columns in the graph.
   */
     if (n < 1 || m < 1) {
-      throw new Error("Invalid number of nodes in grid graph");
+      throw new Error('Invalid number of nodes in grid graph');
     }
     var g = createGraph(),
         i,
@@ -181,7 +181,7 @@ function factory(createGraph) {
   * @param {Number} z of levels in the graph.
   */
     if (n < 1 || m < 1 || z < 1) {
-      throw new Error("Invalid number of nodes in grid3 graph");
+      throw new Error('Invalid number of nodes in grid3 graph');
     }
     var g = createGraph(),
         i, j, k;
@@ -213,7 +213,7 @@ function factory(createGraph) {
   * @param {Number} n of levels in the binary tree
   */
     if (n === undefined || n < 0) {
-      throw new Error("Invalid number of levels in balanced tree");
+      throw new Error('Invalid number of levels in balanced tree');
     }
     var g = createGraph(),
         count = Math.pow(2, n),
@@ -242,7 +242,7 @@ function factory(createGraph) {
   * @param {Number} n of nodes in the graph
   */
     if (n < 0) {
-      throw new Error("Number of nodes should be >= 0");
+      throw new Error('Number of nodes should be >= 0');
     }
 
     var g = createGraph(), i;
