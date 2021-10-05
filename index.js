@@ -96,7 +96,7 @@ function factory(createGraph) {
     return g;
   }
 
-  function completeBipartite (n, m) {
+  function completeBipartite(n, m) {
   /**
   * Complete bipartite graph K n,m. Each node in the
   * first partition is connected to all nodes in the second partition.

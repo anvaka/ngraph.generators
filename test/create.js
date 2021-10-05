@@ -36,6 +36,14 @@ test('boundary conditions are checked', function(t) {
 
   t.throws(() => generators.cliqueCircle(0, 1), 'Clique circle graph with 0 clique should throw');
   t.throws(() => generators.cliqueCircle(1, 0), 'Clique circle graph with 0 clique size throw');
+
+  t.throws(() => generators.completeBipartite(0, 1), 'Complete bipartite graph with 0 nodes should throw');
+  t.throws(() => generators.completeBipartite(1, 0), 'Complete bipartite graph with 0 nodes should throw');
+  t.throws(() => generators.completeBipartite(), 'Complete bipartite graph with 0 nodes should throw');
+
+  t.throws(() => generators.grid(0, 0), 'Grid graph with 0 nodes should throw');
+  t.throws(() => generators.grid(1, 0), 'Grid graph with 0 nodes should throw');
+  t.throws(() => generators.grid(0, 1), 'Grid graph with 0 nodes should throw');
   t.end();
 });
 
