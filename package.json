@@ -25,11 +25,11 @@
   },
   "devDependencies": {
     "browserify": "^17.0.0",
-    "tap": "^15.0.10",
-    "uglify-js": "^3.14.2"
+    "tap": "^15.1.5",
+    "uglify-js": "^3.14.5"
   },
   "dependencies": {
-    "ngraph.graph": "^19.1.0",
+    "ngraph.graph": "^20.0.0",
     "ngraph.random": "^1.0.0"
   }
 }

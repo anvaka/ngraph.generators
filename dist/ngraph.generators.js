@@ -1,4 +1,4 @@
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.generators = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.generators = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 var createGraph = require('ngraph.graph');
 
 module.exports = factory(createGraph);
@@ -12,7 +12,7 @@ function factory(createGraph) {
     complete: complete,
     completeBipartite: completeBipartite,
 
-    // these are synonims
+    // these are synonyms
     balancedBinTree: balancedBinTree,
     balancedBinaryTree: balancedBinTree,
     binaryTree: balancedBinTree,
@@ -34,7 +34,7 @@ function factory(createGraph) {
   * @param {Number} n Represents number of steps in the ladder
   */
     if (!n || n < 0) {
-      throw new Error("Invalid number of nodes");
+      throw new Error('Invalid number of nodes');
     }
 
     var g = createGraph(),
@@ -62,7 +62,7 @@ function factory(createGraph) {
   * @param {Number} n of steps in the ladder.
   */
       if (!n || n < 0) {
-          throw new Error("Invalid number of nodes");
+          throw new Error('Invalid number of nodes');
       }
 
       var g = ladder(n);
@@ -79,7 +79,7 @@ function factory(createGraph) {
   * @param {Number} n represents number of nodes in the complete graph.
   */
     if (!n || n < 1) {
-      throw new Error("At least two nodes are expected for complete graph");
+      throw new Error('At least two nodes are expected for complete graph');
     }
 
     var g = createGraph(),
@@ -97,7 +97,7 @@ function factory(createGraph) {
     return g;
   }
 
-  function completeBipartite (n, m) {
+  function completeBipartite(n, m) {
   /**
   * Complete bipartite graph K n,m. Each node in the
   * first partition is connected to all nodes in the second partition.
@@ -106,7 +106,7 @@ function factory(createGraph) {
   * @param {Number} m represents number of nodes in the second graph partition
   */
     if (!n || !m || n < 0 || m < 0) {
-      throw new Error("Graph dimensions are invalid. Number of nodes in each partition should be greater than 0");
+      throw new Error('Graph dimensions are invalid. Number of nodes in each partition should be greater than 0');
     }
 
     var g = createGraph(),
@@ -128,7 +128,7 @@ function factory(createGraph) {
   * @param {Number} n number of nodes in the path
   */
     if (!n || n < 0) {
-      throw new Error("Invalid number of nodes");
+      throw new Error('Invalid number of nodes');
     }
 
     var g = createGraph(),
@@ -152,7 +152,7 @@ function factory(createGraph) {
   * @param {Number} m of columns in the graph.
   */
     if (n < 1 || m < 1) {
-      throw new Error("Invalid number of nodes in grid graph");
+      throw new Error('Invalid number of nodes in grid graph');
     }
     var g = createGraph(),
         i,
@@ -182,7 +182,7 @@ function factory(createGraph) {
   * @param {Number} z of levels in the graph.
   */
     if (n < 1 || m < 1 || z < 1) {
-      throw new Error("Invalid number of nodes in grid3 graph");
+      throw new Error('Invalid number of nodes in grid3 graph');
     }
     var g = createGraph(),
         i, j, k;
@@ -213,8 +213,8 @@ function factory(createGraph) {
   *
   * @param {Number} n of levels in the binary tree
   */
-    if (n < 0) {
-      throw new Error("Invalid number of nodes in balanced tree");
+    if (n === undefined || n < 0) {
+      throw new Error('Invalid number of levels in balanced tree');
     }
     var g = createGraph(),
         count = Math.pow(2, n),
@@ -243,7 +243,7 @@ function factory(createGraph) {
   * @param {Number} n of nodes in the graph
   */
     if (n < 0) {
-      throw new Error("Number of nodes should be >= 0");
+      throw new Error('Number of nodes should be >= 0');
     }
 
     var g = createGraph(), i;
@@ -493,13 +493,13 @@ function createGraph(options) {
     throw new Error('ngraph.graph requires `Map` to be defined. Please polyfill it before using ngraph');
   } 
 
-  var nodes = new Map();
-  var links = [],
+  var nodes = new Map(); // nodeId => Node
+  var links = new Map(); // linkId => Link
     // Hash of multi-edges. Used to track ids of edges between same nodes
-    multiEdges = {},
-    suspendEvents = 0,
+  var multiEdges = {};
+  var suspendEvents = 0;
 
-    createLink = options.multigraph ? createUniqueLink : createSingleLink,
+  var createLink = options.multigraph ? createUniqueLink : createSingleLink,
 
     // Our graph API provides means to listen to graph changes. Users can subscribe
     // to be notified about changes in the graph by using `on` method. However
@@ -520,6 +520,12 @@ function createGraph(options) {
 
   // this is our public API:
   var graphPart = {
+    /**
+     * Sometimes duck typing could be slow. Giving clients a hint about data structure
+     * via explicit version number here:
+     */
+    version: 20.0,
+
     /**
      * Adds node to the graph. If node with given id already exists in the graph
      * its data is extended with whatever comes in 'data' argument.
@@ -586,6 +592,11 @@ function createGraph(options) {
     getLinkCount: getLinkCount,
 
     /**
+     * Gets total number of links in the graph.
+     */
+    getEdgeCount: getLinkCount,
+
+    /**
      * Synonym for `getLinkCount()`
      */
     getLinksCount: getLinkCount,
@@ -601,7 +612,7 @@ function createGraph(options) {
      *
      * @param nodeId requested node identifier.
      *
-     * @return Array of links from and to requested node if such node exists;
+     * @return Set of links from and to requested node if such node exists;
      *   otherwise null is returned.
      */
     getLinks: getLinks,
@@ -657,7 +668,7 @@ function createGraph(options) {
     /**
      * Detects whether there is a link between two nodes.
      * Operation complexity is O(n) where n - number of links of a node.
-     * NOTE: this function is synonim for getLink()
+     * NOTE: this function is synonym for getLink()
      *
      * @returns link if there is one. null otherwise.
      */
@@ -667,7 +678,7 @@ function createGraph(options) {
      * Detects whether there is a node with given id
      * 
      * Operation complexity is O(1)
-     * NOTE: this function is synonim for getNode()
+     * NOTE: this function is synonym for getNode()
      *
      * @returns node if there is one; Falsy value otherwise.
      */
@@ -680,7 +691,7 @@ function createGraph(options) {
      * @param {string} fromId link start identifier
      * @param {string} toId link end identifier
      *
-     * @returns link if there is one. null otherwise.
+     * @returns link if there is one; undefined otherwise.
      */
     getLink: getLink
   };
@@ -763,13 +774,11 @@ function createGraph(options) {
 
     var prevLinks = node.links;
     if (prevLinks) {
+      prevLinks.forEach(removeLinkInstance);
       node.links = null;
-      for(var i = 0; i < prevLinks.length; ++i) {
-        removeLink(prevLinks[i]);
-      }
     }
 
-    nodes.delete(nodeId)
+    nodes.delete(nodeId);
 
     recordNodeChange(node, 'remove');
 
@@ -786,8 +795,9 @@ function createGraph(options) {
     var toNode = getNode(toId) || addNode(toId);
 
     var link = createLink(fromId, toId, data);
+    var isUpdate = links.has(link.id);
 
-    links.push(link);
+    links.set(link.id, link);
 
     // TODO: this is not cool. On large graphs potentially would consume more memory.
     addLinkToNode(fromNode, link);
@@ -796,7 +806,7 @@ function createGraph(options) {
       addLinkToNode(toNode, link);
     }
 
-    recordLinkChange(link, 'add');
+    recordLinkChange(link, isUpdate ? 'update' : 'add');
 
     exitModification();
 
@@ -805,11 +815,17 @@ function createGraph(options) {
 
   function createSingleLink(fromId, toId, data) {
     var linkId = makeLinkId(fromId, toId);
+    var prevLink = links.get(linkId);
+    if (prevLink) {
+      prevLink.data = data;
+      return prevLink;
+    }
+
     return new Link(fromId, toId, data, linkId);
   }
 
   function createUniqueLink(fromId, toId, data) {
-    // TODO: Get rid of this method.
+    // TODO: Find a better/faster way to store multigraphs
     var linkId = makeLinkId(fromId, toId);
     var isMultiEdge = multiEdges.hasOwnProperty(linkId);
     if (isMultiEdge || getLink(fromId, toId)) {
@@ -828,7 +844,7 @@ function createGraph(options) {
   }
 
   function getLinkCount() {
-    return links.length;
+    return links.size;
   }
 
   function getLinks(nodeId) {
@@ -836,34 +852,32 @@ function createGraph(options) {
     return node ? node.links : null;
   }
 
-  function removeLink(link) {
+  function removeLink(link, otherId) {
+    if (otherId !== undefined) {
+      link = getLink(link, otherId);
+    }
+    return removeLinkInstance(link);
+  }
+
+  function removeLinkInstance(link) {
     if (!link) {
       return false;
     }
-    var idx = indexOfElementInArray(link, links);
-    if (idx < 0) {
-      return false;
-    }
+    if (!links.get(link.id)) return false;
 
     enterModification();
 
-    links.splice(idx, 1);
+    links.delete(link.id);
 
     var fromNode = getNode(link.fromId);
     var toNode = getNode(link.toId);
 
     if (fromNode) {
-      idx = indexOfElementInArray(link, fromNode.links);
-      if (idx >= 0) {
-        fromNode.links.splice(idx, 1);
-      }
+      fromNode.links.delete(link);
     }
 
     if (toNode) {
-      idx = indexOfElementInArray(link, toNode.links);
-      if (idx >= 0) {
-        toNode.links.splice(idx, 1);
-      }
+      toNode.links.delete(link);
     }
 
     recordLinkChange(link, 'remove');
@@ -874,21 +888,8 @@ function createGraph(options) {
   }
 
   function getLink(fromNodeId, toNodeId) {
-    // TODO: Use sorted links to speed this up
-    var node = getNode(fromNodeId),
-      i;
-    if (!node || !node.links) {
-      return null;
-    }
-
-    for (i = 0; i < node.links.length; ++i) {
-      var link = node.links[i];
-      if (link.fromId === fromNodeId && link.toId === toNodeId) {
-        return link;
-      }
-    }
-
-    return null; // no link.
+    if (fromNodeId === undefined || toNodeId === undefined) return undefined;
+    return links.get(makeLinkId(fromNodeId, toNodeId));
   }
 
   function clear() {
@@ -900,10 +901,14 @@ function createGraph(options) {
   }
 
   function forEachLink(callback) {
-    var i, length;
     if (typeof callback === 'function') {
-      for (i = 0, length = links.length; i < length; ++i) {
-        callback(links[i]);
+      var valuesIterator = links.values();
+      var nextValue = valuesIterator.next();
+      while (!nextValue.done) {
+        if (callback(nextValue.value)) {
+          return true; // client doesn't want to proceed. Return.
+        }
+        nextValue = valuesIterator.next();
       }
     }
   }
@@ -920,29 +925,37 @@ function createGraph(options) {
     }
   }
 
+  // eslint-disable-next-line no-shadow
   function forEachNonOrientedLink(links, nodeId, callback) {
     var quitFast;
-    for (var i = 0; i < links.length; ++i) {
-      var link = links[i];
-      var linkedNodeId = link.fromId === nodeId ? link.toId : link.fromId;
 
+    var valuesIterator = links.values();
+    var nextValue = valuesIterator.next();
+    while (!nextValue.done) {
+      var link = nextValue.value;
+      var linkedNodeId = link.fromId === nodeId ? link.toId : link.fromId;
       quitFast = callback(nodes.get(linkedNodeId), link);
       if (quitFast) {
         return true; // Client does not need more iterations. Break now.
       }
+      nextValue = valuesIterator.next();
     }
   }
 
+  // eslint-disable-next-line no-shadow
   function forEachOrientedLink(links, nodeId, callback) {
     var quitFast;
-    for (var i = 0; i < links.length; ++i) {
-      var link = links[i];
+    var valuesIterator = links.values();
+    var nextValue = valuesIterator.next();
+    while (!nextValue.done) {
+      var link = nextValue.value;
       if (link.fromId === nodeId) {
-        quitFast = callback(nodes.get(link.toId), link)
+        quitFast = callback(nodes.get(link.toId), link);
         if (quitFast) {
           return true; // Client does not need more iterations. Break now.
         }
       }
+      nextValue = valuesIterator.next();
     }
   }
 
@@ -979,26 +992,6 @@ function createGraph(options) {
   }
 }
 
-// need this for old browsers. Should this be a separate module?
-function indexOfElementInArray(element, array) {
-  if (!array) return -1;
-
-  if (array.indexOf) {
-    return array.indexOf(element);
-  }
-
-  var len = array.length,
-    i;
-
-  for (i = 0; i < len; i += 1) {
-    if (array[i] === element) {
-      return i;
-    }
-  }
-
-  return -1;
-}
-
 /**
  * Internal structure to represent node;
  */
@@ -1010,9 +1003,9 @@ function Node(id, data) {
 
 function addLinkToNode(node, link) {
   if (node.links) {
-    node.links.push(link);
+    node.links.add(link);
   } else {
-    node.links = [link];
+    node.links = new Set([link]);
   }
 }
 
@@ -1064,10 +1057,14 @@ Generator.prototype.next = next;
 Generator.prototype.nextDouble = nextDouble;
 
 /**
- * Returns a random real number uniformly in [0, 1)
+ * Returns a random real number from uniform distribution in [0, 1)
  */
 Generator.prototype.uniform = nextDouble;
 
+/**
+ * Returns a random real number from a Gaussian distribution
+ * with 0 as a mean, and 1 as standard deviation u ~ N(0,1)
+ */
 Generator.prototype.gaussian = gaussian;
 
 function gaussian() {
@@ -1081,6 +1078,26 @@ function gaussian() {
   } while (r >= 1 || r === 0);
 
   return x * Math.sqrt(-2 * Math.log(r)/r);
+}
+
+/**
+ * See https://twitter.com/anvaka/status/1296182534150135808
+ */
+Generator.prototype.levy = levy;
+
+function levy() {
+  var beta = 3 / 2;
+  var sigma = Math.pow(
+      gamma( 1 + beta ) * Math.sin(Math.PI * beta / 2) / 
+        (gamma((1 + beta) / 2) * beta * Math.pow(2, (beta - 1) / 2)),
+      1/beta
+  );
+  return this.gaussian() * sigma / Math.pow(Math.abs(this.gaussian()), 1/beta);
+}
+
+// gamma function approximation
+function gamma(z) {
+  return Math.sqrt(2 * Math.PI / z) * Math.pow((1 / Math.E) * (z + 1 / (12 * z - 1 / (10 * z))), z);
 }
 
 function nextDouble() {
