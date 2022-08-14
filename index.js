@@ -1,5 +1,7 @@
 var createGraph = require('ngraph.graph');
 
+var createMiserables = require('miserables').create;
+
 module.exports = factory(createGraph);
 
 // Allow other developers have their own createGraph
@@ -23,7 +25,8 @@ function factory(createGraph) {
     grid3: grid3,
     noLinks: noLinks,
     wattsStrogatz: wattsStrogatz,
-    cliqueCircle: cliqueCircle
+    cliqueCircle: cliqueCircle,
+    miserables: createMiserables
   };
 
 

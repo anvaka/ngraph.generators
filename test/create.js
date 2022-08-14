@@ -12,6 +12,13 @@ test('Create ladder', function(t) {
   t.end();
 });
 
+test('Create miserables', function(t) {
+  var graph = generators.miserables();
+  t.equal(graph.getNodesCount(), 77, 'Unexpected number of nodes for miserables graph');
+  t.equal(graph.getLinksCount(), 254, 'Unexpected number of links for miserables graph');
+  t.end();
+});
+
 test('boundary conditions are checked', function(t) {
   t.throws(() => generators.ladder(), 'Ladder graph with no nodes should throw');
   t.throws(() => generators.ladder(0), 'Ladder graph with 0 nodes should throw');
@@ -44,6 +51,8 @@ test('boundary conditions are checked', function(t) {
   t.throws(() => generators.grid(0, 0), 'Grid graph with 0 nodes should throw');
   t.throws(() => generators.grid(1, 0), 'Grid graph with 0 nodes should throw');
   t.throws(() => generators.grid(0, 1), 'Grid graph with 0 nodes should throw');
+
+  t.throws(() => generators.grid3(0, 1), 'Grid3 graph with missing nodes should throw');
   t.end();
 });
 

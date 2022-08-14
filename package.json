@@ -29,6 +29,7 @@
     "uglify-js": "^3.14.5"
   },
   "dependencies": {
+    "miserables": "^2.0.0",
     "ngraph.graph": "^20.0.0",
     "ngraph.random": "^1.0.0"
   }
