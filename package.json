@@ -4,7 +4,7 @@
   "description": "Graph generators library",
   "main": "index.js",
   "scripts": {
-    "test": "tap --branches=90 --lines=90 --statements=90 --functions=90 test/*.js",
+    "test": "tap test/*.js",
     "build": "browserify index.js -s generators -o dist/ngraph.generators.js && uglifyjs dist/ngraph.generators.js -o dist/ngraph.generators.min.js"
   },
   "repository": {
@@ -25,12 +25,12 @@
   },
   "devDependencies": {
     "browserify": "^17.0.0",
-    "tap": "^16.0.1",
+    "tap": "^21.1.0",
     "uglify-js": "^3.14.5"
   },
   "dependencies": {
-    "miserables": "^2.0.0",
-    "ngraph.graph": "^20.0.0",
+    "miserables": "^3.0.0",
+    "ngraph.graph": "^20.0.1",
     "ngraph.random": "^1.0.0"
   }
 }
